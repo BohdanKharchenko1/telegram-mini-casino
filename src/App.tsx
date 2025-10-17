@@ -1,6 +1,7 @@
 import WebApp from "@twa-dev/sdk";
 import { useEffect } from "react";
 import useTelegramAuth from "./hooks/useTelegramAuth.ts";
+import { useRawInitData } from '@telegram-apps/sdk-react';
 
 export default function App() {
     const { response, error } = useTelegramAuth();
@@ -9,10 +10,11 @@ export default function App() {
         WebApp.ready();
         WebApp.expand();
     }, []);
+    const check = useRawInitData()
 
     const handleClick = () => {
-        console.log("Response:", response);
-        console.log("Error:", error);
+        console.log("check:", check);
+
     };
 
     return (
