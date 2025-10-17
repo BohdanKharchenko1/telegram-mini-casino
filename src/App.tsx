@@ -4,7 +4,6 @@ import useTelegramAuth from "./hooks/useTelegramAuth.ts";
 import { useRawInitData } from '@telegram-apps/sdk-react';
 
 export default function App() {
-    const { response, error } = useTelegramAuth();
 
     useEffect(() => {
         WebApp.ready();
