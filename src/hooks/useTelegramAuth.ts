@@ -6,6 +6,7 @@ export default function useTelegramAuth() {
     const rawData = useRawInitData();
     const [response, setResponse] = useState(null);
         const [error, setError] = useState<unknown>(null);
+    console.log(`useTelegramAuth call${rawData}`);
 
     useEffect(() => {
         if(!rawData) return;
