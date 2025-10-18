@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react';
 export default function useTelegramAuth() {
     const rawData = useRawInitData();
     const [response, setResponse] = useState(null);
-        const [error, setError] = useState<unknown>(null);
+    const [error, setError] = useState<unknown>(null);
+
 
     useEffect(() => {
         if(!rawData) return;
@@ -15,7 +16,7 @@ export default function useTelegramAuth() {
                 const res = await baseUrl.post('/auth',{}, {
                     headers: {'Authorization' : `tma ${rawData}`}
                 });
-                console.log(rawData);
+                console.log(res);
                 setResponse(res.data);
 
             }catch(error){
