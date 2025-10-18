@@ -8,7 +8,14 @@ export default function App(){
     const info = useRawInitData();
 
     const handleClick = () => {
-        console.log(info);
+        if (info) {
+            const params = new URLSearchParams(info);
+            const userJson = params.get("user");
+            if (userJson) {
+                const user = JSON.parse(decodeURIComponent(userJson));
+                console.log("Decoded user:", user);
+            }
+        }
     }
 
     useEffect(()=> {
