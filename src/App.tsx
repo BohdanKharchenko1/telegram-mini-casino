@@ -1,10 +1,11 @@
 import WebApp from "@twa-dev/sdk";
 import {useEffect} from "react";
 import { useRawInitData } from '@telegram-apps/sdk-react';
+import useTelegramAuth from './hooks/useTelegramAuth.ts';
 
 export default function App(){
     console.log("App is rendering!");
-
+    const {response, error} = useTelegramAuth();
     const info = useRawInitData();
 
     const handleClick = () => {
@@ -19,15 +20,20 @@ export default function App(){
     }
 
     useEffect(()=> {
+
         WebApp.expand();
 
-        }, []);
+        if (response) console.log('Backend response:', response);
+        if (error) console.error('Auth error:', error);
+        }, [error, response]);
+
 
         return (
           <div className="min-h-screen flex items-center justify-center bg-gray-200">
             <button className="h-12 w-32 bg-blue-500 text-white rounded" onClick={handleClick}>
                 Click me!
             </button>
+
         </div>
         );
 

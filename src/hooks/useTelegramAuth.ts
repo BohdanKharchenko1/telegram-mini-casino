@@ -14,7 +14,7 @@ export default function useTelegramAuth() {
         const fetchData = async () => {
             try{
                 const res = await baseUrl.post('/auth',{}, {
-                    headers: {'Authorization' : `tma ${rawData}`}
+                    headers: {'Authorization' : rawData}
                 });
                 console.log(res);
                 setResponse(res.data);
