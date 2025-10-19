@@ -3,6 +3,8 @@ import { retrieveRawInitData } from '@telegram-apps/sdk'
 
 export async function loginWithTelegram() {
   try {
+    sessionStorage.removeItem("__telegram__initParams");
+    sessionStorage.removeItem("tapps/launchParams");
     const rawData = retrieveRawInitData();
     console.log('loginWithTelegram', rawData);
     const response = await baseUrl.post(
