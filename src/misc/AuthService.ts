@@ -7,12 +7,7 @@ export async function loginWithTelegram() {
     console.log('loginWithTelegram', rawData);
     const response = await baseUrl.post(
       '/auth',
-      {},
-      {
-        headers: {
-          Authorization: rawData,
-        },
-      },
+      {initData: rawData},
     );
 
     const { token, user } = response.data;
