@@ -4,6 +4,7 @@ import { retrieveRawInitData } from '@telegram-apps/sdk'
 export async function loginWithTelegram() {
   try {
     const rawData = retrieveRawInitData();
+    console.log('loginWithTelegram', rawData);
     const response = await baseUrl.post(
       '/auth',
       {},
