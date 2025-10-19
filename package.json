@@ -13,6 +13,7 @@
     "@nestjs/mapped-types": "*",
     "@tailwindcss/vite": "^4.1.14",
     "@telegram-apps/sdk-react": "^3.3.9",
+    "@tonconnect/ui-react": "^2.3.1",
     "@twa-dev/sdk": "^8.0.2",
     "axios": "^1.12.2",
     "react": "^19.1.1",
