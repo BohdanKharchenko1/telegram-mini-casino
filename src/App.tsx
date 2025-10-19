@@ -1,11 +1,10 @@
 import WebApp from "@twa-dev/sdk";
 import {useEffect} from "react";
 import { useRawInitData } from '@telegram-apps/sdk-react';
-import useTelegramAuth from './hooks/useTelegramAuth.ts';
+import { loginWithTelegram } from './misc/AuthService.ts';
 
 export default function App(){
     console.log("App is rendering!");
-    const {response, error} = useTelegramAuth();
     const info = useRawInitData();
 
     const handleClick = () => {
@@ -23,9 +22,8 @@ export default function App(){
 
         WebApp.expand();
 
-        if (response) console.log('Backend response:', response);
-        if (error) console.error('Auth error:', error);
-        }, [error, response]);
+        loginWithTelegram().catch(console.error);
+        }, );
 
 
         return (
