@@ -1,11 +1,13 @@
 import WebApp from "@twa-dev/sdk";
-import {useEffect} from "react";
+import { useEffect } from 'react';
 import { loginWithTelegram } from './misc/AuthService.ts';
 import {  useTonConnectUI } from '@tonconnect/ui-react';
 
 export default function App(){
 
     const [tonConnectUI] = useTonConnectUI();
+    //const [connected, setConnected] = useState(false);
+
     useEffect(()=> {
 
         WebApp.expand();
