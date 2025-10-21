@@ -1,0 +1,44 @@
+import type { TonConnectUI } from '@tonconnect/ui-react';
+import { useEffect, useState } from 'react';
+import { updateWallet } from '../api/wallet.ts';
+
+interface TonConnectButtonProps {
+  tonConnect: TonConnectUI,
+  userId: string,
+}
+
+export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) {
+  const [isConnected, setIsConnected] = useState(false);
+  useEffect(()=>{
+    tonConnect.onStatusChange(async (walletInfo) => {
+        if(walletInfo?.account ){
+          const walletAddress = walletInfo.account.address;
+          setIsConnected(true);
+          await updateWallet(walletAddress!, userId);
+          }else {
+          setIsConnected(false);
+        }
+
+    })
+    }, [tonConnect, userId]
+  )
+
+
+
+  return(
+    <div className='flex items-center justify-center min-h-screen'>
+      <button className='p-2 bg-blue-400 ' onClick={() => tonConnect.openModal()}>
+          Connect Wallet
+      </button>
+      <button className='p-2 bg-blue-400 ' onClick={() => tonConnect.disconnect()}>
+        Close Wallet
+      </button>
+      {isConnected && (
+        <button className='p-2 accent-red-600 '>
+          hello
+        </button>
+      )
+      }
+    </div>
+  );
+}

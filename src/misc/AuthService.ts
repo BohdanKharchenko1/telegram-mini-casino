@@ -19,6 +19,7 @@ export async function loginWithTelegram() {
     }
 
     localStorage.setItem('jwt', token);
+    localStorage.setItem('user', JSON.stringify(user));
 
     return user;
   } catch (err) {

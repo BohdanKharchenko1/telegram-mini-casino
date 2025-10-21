@@ -1,13 +1,14 @@
 import WebApp from "@twa-dev/sdk";
 import { useEffect } from 'react';
 import { loginWithTelegram } from './misc/AuthService.ts';
-import { useTonConnectUI, useTonWallet } from '@tonconnect/ui-react';
+import { useTonConnectUI} from '@tonconnect/ui-react';
+import { TonConnectButton } from './components/TonConnectButton.tsx';
+import type { User } from './types/User.ts';
 
 export default function App(){
 
     const [tonConnectUI] = useTonConnectUI();
-    const wallet = useTonWallet();
-    //const [connected, setConnected] = useState(false);
+    const user:User = JSON.parse(localStorage.getItem('user') || '{}');
 
     useEffect(()=> {
 
@@ -18,15 +19,10 @@ export default function App(){
 
 
         return (
-              <div className="flex min-h-screen items-center justify-center w-full">
-                    <button className=' bg-blue-400' onClick={()=>tonConnectUI.openModal()}>
-                        connect!
-                    </button>
-                {wallet &&
-                  <button className='bg-amber-400'>
-                    connected!
-                  </button>}
-              </div>
+              <TonConnectButton tonConnect={tonConnectUI} userId={user?.id}/>
+
+
+
         );
 
 }
