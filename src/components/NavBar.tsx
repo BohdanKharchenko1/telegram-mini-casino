@@ -14,8 +14,8 @@ export default function NavBar() {
         transform: 'translateX(-50%)',
         width: '80%',
         maxWidth: 500,
-        height: 100,
-        borderRadius: 5,
+        height: 90,
+        borderRadius: 6,
         overflow: 'hidden',
         background:
           'radial-gradient(circle, rgba(255,79,160,1) 0%, rgba(182,66,154,1) 50%, rgba(115,46,145,1) 100%)',
@@ -33,6 +33,7 @@ export default function NavBar() {
           display: 'flex',
           justifyContent: 'space-around',
           alignItems: 'center',
+          transform: 'translateY(5%)',
         }}
         showLabels
         value={value}
@@ -40,15 +41,31 @@ export default function NavBar() {
       >
         <BottomNavigationAction
           label="PVP"
-          icon={<img src="/NavBarIcons/icons-03.svg" alt="PVP" width={60} height={60} />}
+          icon={<img src="/NavBarIcons/icons-03.svg" alt="PVP" width={45} height={45} style={{
+            border: '1px solid white',
+            borderRadius: '15%',
+            padding: '5px',
+            backgroundColor: '#732e91'
+          }}/>}
         />
         <BottomNavigationAction
           label="Solo"
-          icon={<img src="/NavBarIcons/icons-04.svg" alt="Solo" width={60} height={60} />}
+          icon={<img src="/NavBarIcons/icons-04.svg" alt="Solo" width={45} height={45} style={{
+            border: '1px solid white',
+            borderRadius: '15%',
+            padding: '5px',
+            backgroundColor: '#732e91'
+
+          }}/>}
         />
         <BottomNavigationAction
           label="Profile"
-          icon={<img src="/NavBarIcons/icons-05.svg" alt="Profile" width={60} height={60} />}
+          icon={<img src="/NavBarIcons/icons-05.svg" alt="Profile" width={45} height={45} style={{
+            border: '1px solid white',
+            borderRadius: '15%',
+            padding: '5px',
+            backgroundColor: '#732e91'
+          }}/>}
         />
       </BottomNavigation>
     </Paper>
