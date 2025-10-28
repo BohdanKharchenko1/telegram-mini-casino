@@ -45,8 +45,14 @@ export default function NavBar() {
             border: '1px solid white',
             borderRadius: '15%',
             padding: '5px',
-            backgroundColor: '#732e91'
+            backgroundColor: '#732e91',
           }}/>}
+          sx={{
+            '&.Mui-selected': {
+              color: 'inherit',
+            },
+          }}
+
         />
         <BottomNavigationAction
           label="Solo"
@@ -55,8 +61,12 @@ export default function NavBar() {
             borderRadius: '15%',
             padding: '5px',
             backgroundColor: '#732e91'
-
           }}/>}
+          sx={{
+            '&.Mui-selected': {
+              color: 'inherit',
+            },
+          }}
         />
         <BottomNavigationAction
           label="Profile"
@@ -66,6 +76,11 @@ export default function NavBar() {
             padding: '5px',
             backgroundColor: '#732e91'
           }}/>}
+          sx={{
+            '&.Mui-selected': {
+              color: 'inherit',
+            },
+          }}
         />
       </BottomNavigation>
     </Paper>
