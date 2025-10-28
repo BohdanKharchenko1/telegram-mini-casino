@@ -3,7 +3,7 @@
   <defs>
     <style>
       .cls-1 {
-        fill: #ffd600;
+        fill: #fff;
         stroke: #56246d;
         stroke-miterlimit: 10;
         stroke-width: 2px;
