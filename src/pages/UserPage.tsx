@@ -26,14 +26,21 @@ export default function UserPage() {
           background:
             'linear-gradient(27deg,rgba(255, 79, 160, 1) 0%, rgba(182, 66, 154, 1) 50%, rgba(115, 46, 145, 1) 100%)',
           display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          justifyContent: 'flex-start',
+          alignItems: 'flex-start',
+          pl: 3,
+          pt: 3,
       }}
          elevation={2}
     >
-        <Stack direction='row' spacing={2}>
-          <Avatar src={user?.photoUrl || undefined}/>
-
+        <Stack direction='column' spacing={2}>
+          <Stack direction='row' spacing={2} sx = {{
+            left:0,
+          }}
+          >
+            <Avatar src={user?.photoUrl || undefined}/>
+            <Avatar src={user?.photoUrl || undefined}/>
+          </Stack>
         </Stack>
 
 

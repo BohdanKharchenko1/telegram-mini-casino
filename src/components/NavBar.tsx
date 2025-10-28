@@ -18,7 +18,7 @@ export default function NavBar() {
         borderRadius: 6,
         overflow: 'hidden',
         background:
-          'radial-gradient(circle, rgba(255,79,160,1) 0%, rgba(182,66,154,1) 50%, rgba(115,46,145,1) 100%)',
+          'linear-gradient(-90deg,rgba(109, 52, 205, 1) 0%, rgba(115, 46, 145, 1) 100%)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
