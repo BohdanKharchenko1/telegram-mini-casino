@@ -1,1 +1,18 @@
 @import "tailwindcss";
+.MuiBottomNavigation-root,
+.MuiBottomNavigationAction-root,
+.MuiBottomNavigationAction-root.Mui-selected,
+.MuiBottomNavigationAction-label,
+.MuiTouchRipple-root {
+    transition: none !important;
+    animation: none !important;
+}
+
+.MuiBottomNavigationAction-label {
+    opacity: 1 !important;
+    font-size: 0.75rem !important;
+}
+
+.MuiTouchRipple-root {
+    display: none !important;
+}

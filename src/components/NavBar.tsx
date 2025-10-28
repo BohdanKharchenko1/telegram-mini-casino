@@ -22,6 +22,7 @@ export default function NavBar() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+
       }}
       elevation={6}
     >
@@ -34,6 +35,7 @@ export default function NavBar() {
           justifyContent: 'space-around',
           alignItems: 'center',
           transform: 'translateY(5%)',
+
         }}
         showLabels
         value={value}
@@ -50,6 +52,7 @@ export default function NavBar() {
           sx={{
             '&.Mui-selected': {
               color: 'inherit',
+
             },
           }}
 
@@ -80,7 +83,9 @@ export default function NavBar() {
             '&.Mui-selected': {
               color: 'inherit',
             },
+
           }}
+          disableTouchRipple={true}
         />
       </BottomNavigation>
     </Paper>
