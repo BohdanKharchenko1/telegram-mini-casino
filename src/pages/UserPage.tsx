@@ -4,11 +4,13 @@ import NavBar from '../components/NavBar.tsx';
 import type { User } from '../types/User.ts';
 import { useEffect, useState } from 'react';
 import WebApp from '@twa-dev/sdk';
+import { loginWithTelegram } from '../misc/AuthService.ts';
 
 export default function UserPage() {
   const [user, setUser] = useState<User | null>(null);
   useEffect(() => {
     WebApp.expand();
+    loginWithTelegram().catch(console.error);
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       try {
