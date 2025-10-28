@@ -1,24 +1,17 @@
 import Paper from '@mui/material/Paper';
 import { Avatar, Box, Stack } from '@mui/material';
 import NavBar from '../components/NavBar.tsx';
-import type { User } from '../types/User.ts';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import WebApp from '@twa-dev/sdk';
 import { loginWithTelegram } from '../misc/AuthService.ts';
+import useAuth from '../hooks/useAuth.ts';
 
 export default function UserPage() {
-  const [user, setUser] = useState<User | null>(null);
-  useEffect(() => {
+    const {user} = useAuth();
+    useEffect(() => {
     WebApp.expand();
     loginWithTelegram().catch(console.error);
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      try {
-        setUser(JSON.parse(storedUser));
-      } catch (error) {
-        console.error('Invalid user data in localStorage:', error);
-      }
-    }
+
   }, []);  return (
     <Box sx={{background: '#2b1436', height: '100vh', width: '100%'}}>
     <Paper sx={{
