@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from "./App.tsx";
 import WebApp from "@twa-dev/sdk";
-import Footer from "./parts/Footer.tsx";
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 
 
@@ -27,7 +26,6 @@ createRoot(document.getElementById('root')!).render(
       }}
     >
       <App />
-      <Footer />
     </TonConnectUIProvider>
   </StrictMode>,
 )
