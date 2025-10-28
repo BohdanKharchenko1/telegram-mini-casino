@@ -54,6 +54,10 @@ export default function NavBar() {
               color: 'inherit',
 
             },
+            '& .MuiBottomNavigationAction-label': {
+              fontFamily: 'Comfortaa, sans-serif',
+              fontWeight: 500,
+            },
           }}
 
         />
@@ -69,6 +73,10 @@ export default function NavBar() {
             '&.Mui-selected': {
               color: 'inherit',
             },
+            '& .MuiBottomNavigationAction-label': {
+              fontFamily: 'Comfortaa, sans-serif',
+              fontWeight: 500,
+            },
           }}
         />
         <BottomNavigationAction
@@ -83,7 +91,10 @@ export default function NavBar() {
             '&.Mui-selected': {
               color: 'inherit',
             },
-
+            '& .MuiBottomNavigationAction-label': {
+              fontFamily: 'Comfortaa, sans-serif',
+              fontWeight: 500,
+            },
           }}
           disableTouchRipple={true}
         />
