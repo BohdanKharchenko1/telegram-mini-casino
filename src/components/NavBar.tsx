@@ -56,7 +56,8 @@ export default function NavBar() {
             },
             '& .MuiBottomNavigationAction-label': {
               fontFamily: 'Comfortaa, sans-serif',
-              fontWeight: 500,
+              fontWeight: 700,
+              pt: 0.5
             },
           }}
 
@@ -75,7 +76,8 @@ export default function NavBar() {
             },
             '& .MuiBottomNavigationAction-label': {
               fontFamily: 'Comfortaa, sans-serif',
-              fontWeight: 500,
+              fontWeight: 700,
+              pt: 0.5
             },
           }}
         />
@@ -93,7 +95,8 @@ export default function NavBar() {
             },
             '& .MuiBottomNavigationAction-label': {
               fontFamily: 'Comfortaa, sans-serif',
-              fontWeight: 500,
+              fontWeight: 700,
+              pt: 0.5
             },
           }}
           disableTouchRipple={true}
