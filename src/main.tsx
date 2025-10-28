@@ -1,9 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from "./App.tsx";
 import WebApp from "@twa-dev/sdk";
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
+import UserPage from './pages/UserPage.tsx';
 
 
 WebApp.ready();
@@ -20,12 +20,12 @@ createRoot(document.getElementById('root')!).render(
             aboutUrl: 'https://tonkeeper.com',
             bridgeUrl: 'https://bridge.tonapi.io/bridge',
             universalLink: 'https://app.tonkeeper.com/ton-connect',
-            platforms: ['ios', 'android'] // ✅ REQUIRED FIELD
+            platforms: ['ios', 'android']
           },
         ],
       }}
     >
-      <App />
+      <UserPage/>
     </TonConnectUIProvider>
   </StrictMode>,
 )
