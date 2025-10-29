@@ -6,6 +6,7 @@ export default function useAuth() {
 
   useEffect(() => {
     const userData = localStorage.getItem('user');
+    console.log(userData + 'USER DATA');
     if (userData) setUser(JSON.parse(userData));
 
 
