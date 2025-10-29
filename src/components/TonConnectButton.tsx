@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { updateWallet } from '../api/wallet.ts';
 import {  Stack } from '@mui/material';
 import { ConnectButton, TopUpButton, WithdrawButton } from '../misc/theme.ts';
+import useAuth from '../hooks/useAuth.ts';
 
 interface TonConnectButtonProps {
   tonConnect: TonConnectUI,
@@ -11,19 +12,20 @@ interface TonConnectButtonProps {
 
 export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) {
   const [isConnected, setIsConnected] = useState(false);
+  const {user} = useAuth()
   useEffect(()=>{
     tonConnect.onStatusChange(async (walletInfo) => {
 
         if(walletInfo?.account ){
           const walletAddress = walletInfo.account.address;
           setIsConnected(true);
-          await updateWallet(walletAddress!, userId);
+          await updateWallet(walletAddress!, user!.id);
           }else {
           setIsConnected(false);
         }
 
     })
-    }, [tonConnect, userId]
+    }, [tonConnect, userId, user]
   )
 
 
