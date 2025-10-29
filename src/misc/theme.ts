@@ -1,4 +1,4 @@
-import { Button, createTheme, styled } from '@mui/material';
+import { Button, createTheme, Dialog, DialogContent, DialogTitle, styled, Typography } from '@mui/material';
 
 export const theme = createTheme({
   typography: {
@@ -83,5 +83,52 @@ export const WithdrawButton = styled(Button)({
   '&:hover': {
     background: 'rgba(255,255,255,0.08)',
     borderColor: '#fff',
+  },
+});
+
+export const PaymentDialog = styled(Dialog)(({ theme }) => ({
+  '& .MuiPaper-root': {
+    background: 'linear-gradient(180deg, #2B0036 0%, #16001E 100%)',
+    borderRadius: '20px',
+    padding: theme.spacing(4),
+    color: '#fff',
+    minWidth: 400,
+    boxShadow: '0 0 40px rgba(255, 105, 180, 0.4)',
+  },
+}));
+
+export const PaymentTitle = styled(DialogTitle)({
+  textAlign: 'center',
+  fontWeight: 600,
+  fontSize: '22px',
+  color: '#fff',
+});
+
+export const PaymentContent = styled(DialogContent)({
+  textAlign: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '16px',
+  color: '#ddd',
+});
+
+export const PaymentAmount = styled(Typography)({
+  fontSize: '48px',
+  fontWeight: 700,
+  color: '#fff',
+  textShadow: '0 0 10px rgba(255,255,255,0.5)',
+});
+
+export const PaymentButton = styled(Button)({
+  background: 'linear-gradient(90deg, #FF4E8A 0%, #FF84E8 100%)',
+  borderRadius: '12px',
+  color: '#fff',
+  padding: '10px 24px',
+  fontWeight: 600,
+  fontSize: '16px',
+  textTransform: 'none',
+  '&:hover': {
+    background: 'linear-gradient(90deg, #FF84E8 0%, #FF4E8A 100%)',
   },
 });

@@ -1,8 +1,9 @@
-import { type TonConnectUI, useTonWallet } from '@tonconnect/ui-react';
-import { useEffect } from 'react';
+import { type TonConnectUI, useTonAddress } from '@tonconnect/ui-react';
+import { useEffect, useState } from 'react';
 import { updateWallet } from '../api/wallet.ts';
-import {  Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 import { ConnectButton, TopUpButton, WithdrawButton } from '../misc/theme.ts';
+import PaymentDialog from './PaymentDialog.tsx';
 
 interface TonConnectButtonProps {
   tonConnect: TonConnectUI,
@@ -10,13 +11,17 @@ interface TonConnectButtonProps {
 }
 
 export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) {
-  const wallet = useTonWallet();
+  const address = useTonAddress(false);
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen((prev) => !prev);
+  }
+
   useEffect(()=>{
-    if(wallet){
-      const walletAddress = wallet?.account?.address;
-      updateWallet(walletAddress, userId);
+    if(address){
+      updateWallet(address, userId);
     }
-    }, [wallet, userId]
+    }, [address, userId]
   )
 
 
@@ -48,16 +53,17 @@ export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) 
         mt: 2,
       }}
     >
-      {!wallet ? (
+      {!address ? (
         <ConnectButton onClick={() => tonConnect.openModal()}>
           Connect
         </ConnectButton>
       ) : (
         <>
-          <TopUpButton sx={{ flex: '1 1 45%', width: '45%' }}>Top up</TopUpButton>
+          <TopUpButton onClick={() => handleClick()} sx={{ flex: '1 1 45%', width: '45%' }}>Top up</TopUpButton>
           <WithdrawButton sx={{ flex: '1 1 45%', width: '45%' }}>
             Withdraw
           </WithdrawButton>
+          <PaymentDialog open={open}  tonConnect={tonConnect}/>
         </>
       )}
     </Stack>
