@@ -1,16 +1,29 @@
-import {  DialogActions, Typography } from '@mui/material';
+import { DialogActions, Slide, Typography } from '@mui/material';
 import type { TonConnectUI } from '@tonconnect/ui-react';
 import { PaymentAmount, PaymentButton, PaymentContent, PaymentDialoge, PaymentTitle } from '../misc/theme.ts';
+import type { TransitionProps } from '@mui/material/transitions';
+import * as React from 'react';
 
 interface PaymentDialogProps {
   open: boolean;
   tonConnect?: TonConnectUI;
   onClose?: () => void;
 }
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<unknown, string>;
+  },
+  ref: React.Ref<unknown>,
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
 export default function PaymentDialog({ open, onClose }:PaymentDialogProps) {
 
   return (
-    <PaymentDialoge open={open} onClose={onClose} >
+    <PaymentDialoge open={open} onClose={onClose} slots={{
+      transition: Transition,
+    }}>
       <PaymentTitle>Пополнить баланс Bubble</PaymentTitle>
       <PaymentContent>
         <PaymentAmount>0 TON</PaymentAmount>
