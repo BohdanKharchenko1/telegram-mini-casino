@@ -10,6 +10,7 @@ import { useTonConnectUI } from '@tonconnect/ui-react';
 
 export default function UserPage() {
     const {user} = useAuth();
+    console.log(`${user} -useHook user `);
     const [tonConnectUI] = useTonConnectUI();
 
   useEffect(() => {
