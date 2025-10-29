@@ -9,13 +9,12 @@ import { TonConnectButton } from '../components/TonConnectButton.tsx';
 import { useTonConnectUI } from '@tonconnect/ui-react';
 
 export default function UserPage() {
-    const {user} = useAuth();
-    console.log(`${user} -useHook user `);
+    const {user, setUser} = useAuth();
     const [tonConnectUI] = useTonConnectUI();
 
   useEffect(() => {
     WebApp.expand();
-    loginWithTelegram().catch(console.error);
+    loginWithTelegram().then((user) => setUser(user));
 
   }, []);  return (
     <Box sx={{background: '#2b1436', height: '100vh', width: '100%'}}>
