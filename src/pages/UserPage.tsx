@@ -16,7 +16,7 @@ export default function UserPage() {
     WebApp.expand();
     loginWithTelegram().then((user) => setUser(user));
 
-  }, []);  return (
+  }, [setUser]);  return (
     <Box sx={{background: '#2b1436', height: '100vh', width: '100%'}}>
       <Paper
         sx={{
