@@ -96,6 +96,7 @@ export const PaymentDialoge = styled(Dialog)(({ theme }) => ({
     boxShadow: '0 0 40px rgba(255, 105, 180, 0.4)',
     bottom:0,
     position: 'fixed',
+    margin:0,
   },
 
 }));
