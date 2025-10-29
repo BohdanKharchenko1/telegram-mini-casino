@@ -89,12 +89,12 @@ export const WithdrawButton = styled(Button)({
 export const PaymentDialoge = styled(Dialog)(({ theme }) => ({
   '& .MuiPaper-root': {
     background: 'linear-gradient(180deg, #2B0036 0%, #16001E 100%)',
-    borderRadius: '20px',
+    borderRadius: '25px 25px 0 0',
     padding: theme.spacing(4),
     color: '#fff',
-    minWidth: '100%',
+    width: '100%',
     maxWidth: '500px',
-    height: '400px',
+    height: '410px',
     boxShadow: '0 0 40px rgba(255, 105, 180, 0.4)',
     bottom:0,
     position: 'fixed',
@@ -130,8 +130,10 @@ export const PaymentButton = styled(Button)({
   background: 'linear-gradient(90deg, #FF4E8A 0%, #FF84E8 100%)',
   borderRadius: '12px',
   color: '#fff',
-  padding: '10px 24px',
-  fontWeight: 600,
+  padding: '15px 0px',
+  width: '90%',
+  fontWeight: 700,
+
   fontSize: '16px',
   textTransform: 'none',
   '&:hover': {

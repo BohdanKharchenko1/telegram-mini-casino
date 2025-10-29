@@ -23,14 +23,18 @@ export default function PaymentDialog({ open, onClose }:PaymentDialogProps) {
   return (
     <PaymentDialoge open={open} onClose={onClose} slots={{
       transition: Transition,
-    }}>
+    }}
+
+    >
       <PaymentTitle>Пополнить баланс Bubble</PaymentTitle>
       <PaymentContent>
         <PaymentAmount>0 TON</PaymentAmount>
         <Typography variant="body2" color="#bbb">
           Недостаточно TON для пополнения
         </Typography>
-        <PaymentButton>Пополнить TON</PaymentButton>
+        <PaymentButton sx={{
+          marginTop: '20px',
+        }}>Пополнить TON</PaymentButton>
       </PaymentContent>
     </PaymentDialoge>
   )
