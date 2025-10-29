@@ -86,7 +86,7 @@ export const WithdrawButton = styled(Button)({
   },
 });
 
-export const PaymentDialog = styled(Dialog)(({ theme }) => ({
+export const PaymentDialoge = styled(Dialog)(({ theme }) => ({
   '& .MuiPaper-root': {
     background: 'linear-gradient(180deg, #2B0036 0%, #16001E 100%)',
     borderRadius: '20px',
@@ -94,7 +94,10 @@ export const PaymentDialog = styled(Dialog)(({ theme }) => ({
     color: '#fff',
     minWidth: 400,
     boxShadow: '0 0 40px rgba(255, 105, 180, 0.4)',
+    bottom:0,
+    position: 'fixed',
   },
+
 }));
 
 export const PaymentTitle = styled(DialogTitle)({

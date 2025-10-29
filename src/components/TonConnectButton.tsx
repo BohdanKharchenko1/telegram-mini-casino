@@ -59,11 +59,11 @@ export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) 
         </ConnectButton>
       ) : (
         <>
-          <TopUpButton onClick={() => handleClick()} sx={{ flex: '1 1 45%', width: '45%' }}>Top up</TopUpButton>
+          <TopUpButton onClick={() => handleClick()}  sx={{ flex: '1 1 45%', width: '45%' }}>Top up</TopUpButton>
           <WithdrawButton sx={{ flex: '1 1 45%', width: '45%' }}>
             Withdraw
           </WithdrawButton>
-          <PaymentDialog open={open}  tonConnect={tonConnect}/>
+          <PaymentDialog open={open} onClose={()=> setOpen(false)}/>
         </>
       )}
     </Stack>
