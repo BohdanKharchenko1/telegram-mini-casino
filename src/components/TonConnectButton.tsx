@@ -1,6 +1,8 @@
 import type { TonConnectUI } from '@tonconnect/ui-react';
 import { useEffect, useState } from 'react';
 import { updateWallet } from '../api/wallet.ts';
+import {  Stack } from '@mui/material';
+import { ConnectButton, TopUpButton, WithdrawButton } from '../misc/theme.ts';
 
 interface TonConnectButtonProps {
   tonConnect: TonConnectUI,
@@ -25,8 +27,9 @@ export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) 
 
 
 
+
   return(
-    <div className='flex items-center justify-center min-h-screen'>
+    /*<div className='flex items-center justify-center min-h-screen'>
       <button className='p-2 bg-blue-400 ' onClick={() => tonConnect.openModal()}>
           Connect Wallet
       </button>
@@ -40,5 +43,30 @@ export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) 
       )
       }
     </div>
+     */
+    <Stack
+      direction="row"
+      spacing={2}
+      justifyContent="center"
+      alignItems="center"
+      sx={{
+        width: '100%',
+        mt: 2,
+      }}
+    >
+      {!isConnected ? (
+        <ConnectButton onClick={() => tonConnect.openModal()}>
+          Connect
+        </ConnectButton>
+      ) : (
+        <>
+          <TopUpButton sx={{ flex: '1 1 45%', width: '45%' }}>Top up</TopUpButton>
+          <WithdrawButton sx={{ flex: '1 1 45%', width: '45%' }}>
+            Withdraw
+          </WithdrawButton>
+        </>
+      )}
+    </Stack>
+
   );
 }

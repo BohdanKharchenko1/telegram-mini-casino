@@ -1,0 +1,87 @@
+import { Button, createTheme, styled } from '@mui/material';
+
+export const theme = createTheme({
+  typography: {
+    fontFamily: 'Comfortaa, sans-serif',
+  },
+  components: {
+    MuiBottomNavigationAction: {
+
+      styleOverrides: {
+        label: {
+          fontFamily: 'Comfortaa, sans-serif',
+          fontWeight: 700,
+          paddingTop: '2px',
+        },
+        root: {
+          '&.Mui-selected': {
+            color: 'inherit',
+          },
+        },
+      },
+    },
+
+  },
+});
+
+export const ConnectButton = styled(Button)({
+  boxShadow: 'none',
+  textTransform: 'none',
+  fontSize: 16,
+  padding: '6px 12px',
+  border: '1px solid',
+  lineHeight: 1.5,
+  backgroundColor: 'linear-gradient(117deg,rgba(255, 79, 160, 1) 0%, rgba(216, 195, 219, 1) 100%)',
+  '&:hover': {
+    backgroundColor: '#0069d9',
+    borderColor: '#0062cc',
+    boxShadow: 'none',
+  },
+  '&:active': {
+    boxShadow: 'none',
+    backgroundColor: '#0062cc',
+    borderColor: '#005cbf',
+  },
+  '&:focus': {
+    boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+  },
+});
+
+export const TopUpButton = styled(Button)({
+  textTransform: 'none',
+  fontSize: 18,
+  fontWeight: 600,
+  color: '#fff',
+  padding: '10px 0', // 👈 normal vertical padding only
+  width: '45%',
+  borderRadius: '12px',
+  background: 'linear-gradient(117deg, rgba(255,79,160,1) 0%, rgba(216,195,219,1) 100%)',
+  boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+  '&:hover': {
+    background: 'linear-gradient(117deg, rgba(255,79,160,0.9) 0%, rgba(216,195,219,0.9) 100%)',
+    boxShadow: '0 3px 8px rgba(0,0,0,0.2)',
+  },
+});
+
+// 💰 Transparent "Withdraw" button
+export const WithdrawButton = styled(Button)({
+  textTransform: 'none',
+  fontSize: 18,
+  fontWeight: 600,
+  color: '#fff',
+  padding: '10px 0', // 👈 normal vertical padding only
+  width: '45%',
+  borderRadius: '12px',
+  border: '2px solid rgba(255,255,255,0.8)',
+  background: 'transparent',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '8px',
+  '& svg, & img': {
+    color: '#FFD700',
+  },
+  '&:hover': {
+    background: 'rgba(255,255,255,0.08)',
+    borderColor: '#fff',
+  },
+});

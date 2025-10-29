@@ -49,17 +49,7 @@ export default function NavBar() {
             padding: '5px',
             backgroundColor: '#732e91',
           }}/>}
-          sx={{
-            '&.Mui-selected': {
-              color: 'inherit',
 
-            },
-            '& .MuiBottomNavigationAction-label': {
-              fontFamily: 'Comfortaa, sans-serif',
-              fontWeight: 700,
-              pt: 0.5
-            },
-          }}
 
         />
         <BottomNavigationAction
@@ -70,16 +60,6 @@ export default function NavBar() {
             padding: '5px',
             backgroundColor: '#732e91'
           }}/>}
-          sx={{
-            '&.Mui-selected': {
-              color: 'inherit',
-            },
-            '& .MuiBottomNavigationAction-label': {
-              fontFamily: 'Comfortaa, sans-serif',
-              fontWeight: 700,
-              pt: 0.5
-            },
-          }}
         />
         <BottomNavigationAction
           label="Profile"
@@ -89,16 +69,7 @@ export default function NavBar() {
             padding: '5px',
             backgroundColor: '#732e91'
           }}/>}
-          sx={{
-            '&.Mui-selected': {
-              color: 'inherit',
-            },
-            '& .MuiBottomNavigationAction-label': {
-              fontFamily: 'Comfortaa, sans-serif',
-              fontWeight: 700,
-              pt: 0.5
-            },
-          }}
+
           disableTouchRipple={true}
         />
       </BottomNavigation>

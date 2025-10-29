@@ -4,6 +4,8 @@ import './index.css'
 import WebApp from "@twa-dev/sdk";
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import UserPage from './pages/UserPage.tsx';
+import { ThemeProvider } from '@mui/material';
+import { theme } from './misc/theme.ts';
 
 
 WebApp.ready();
@@ -25,7 +27,9 @@ createRoot(document.getElementById('root')!).render(
         ],
       }}
     >
-      <UserPage/>
+      <ThemeProvider theme={theme}>
+        <UserPage/>
+      </ThemeProvider>
     </TonConnectUIProvider>
   </StrictMode>,
 )
