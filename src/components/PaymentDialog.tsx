@@ -1,4 +1,4 @@
-import { DialogActions, Slide, Typography } from '@mui/material';
+import {  Slide, Typography } from '@mui/material';
 import type { TonConnectUI } from '@tonconnect/ui-react';
 import { PaymentAmount, PaymentButton, PaymentContent, PaymentDialoge, PaymentTitle } from '../misc/theme.ts';
 import type { TransitionProps } from '@mui/material/transitions';
@@ -30,10 +30,8 @@ export default function PaymentDialog({ open, onClose }:PaymentDialogProps) {
         <Typography variant="body2" color="#bbb">
           Недостаточно TON для пополнения
         </Typography>
-      </PaymentContent>
-      <DialogActions sx={{ justifyContent: 'center' }}>
         <PaymentButton>Пополнить TON</PaymentButton>
-      </DialogActions>
+      </PaymentContent>
     </PaymentDialoge>
   )
 }
