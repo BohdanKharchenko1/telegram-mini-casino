@@ -18,7 +18,7 @@ export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) 
   }
 
   useEffect(()=>{
-    if(address){
+    if(address && userId){
       updateWallet(address, userId);
     }
     }, [address, userId]
