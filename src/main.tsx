@@ -1,3 +1,4 @@
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -6,7 +7,6 @@ import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import UserPage from './pages/UserPage.tsx';
 import { ThemeProvider } from '@mui/material';
 import { theme } from './misc/theme.ts';
-
 
 WebApp.ready();
 createRoot(document.getElementById('root')!).render(

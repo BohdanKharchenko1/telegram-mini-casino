@@ -63,7 +63,7 @@ export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) 
           <WithdrawButton sx={{ flex: '1 1 45%', width: '45%' }}>
             Withdraw
           </WithdrawButton>
-          <PaymentDialog open={open} onClose={()=> setOpen(false)}/>
+          <PaymentDialog tonConnect={tonConnect} open={open} onClose={()=> setOpen(false)}/>
         </>
       )}
     </Stack>

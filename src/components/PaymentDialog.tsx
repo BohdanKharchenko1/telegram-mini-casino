@@ -1,5 +1,5 @@
 import {  Slide, Typography } from '@mui/material';
-import type { TonConnectUI } from '@tonconnect/ui-react';
+import type { SendTransactionRequest, TonConnectUI } from '@tonconnect/ui-react';
 import {
   PaymentAmountBox, PaymentAmountInput,
   PaymentButton,
@@ -16,6 +16,8 @@ interface PaymentDialogProps {
   tonConnect?: TonConnectUI;
   onClose?: () => void;
 }
+const toNano = (amount: string | number) => BigInt(Math.floor(Number(amount) * 1e9));
+
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement<unknown, string>;
@@ -25,8 +27,18 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function PaymentDialog({ open, onClose }:PaymentDialogProps) {
-  const [amount, setAmount] = useState<string>();
+export default function PaymentDialog({ open, onClose, tonConnect }:PaymentDialogProps) {
+  const [amount, setAmount] = useState<number>(0);
+  const transaction: SendTransactionRequest = {
+    validUntil: Math.floor(Date.now() / 1000) + 600,
+    messages: [
+      {
+        address:
+          import.meta.env.VITE_CONTRACT_ADDRESS,
+        amount: toNano(amount).toString(),
+      },
+    ],
+  };
   return (
     <PaymentDialoge open={open} onClose={onClose} slots={{
       transition: Transition,
@@ -40,14 +52,14 @@ export default function PaymentDialog({ open, onClose }:PaymentDialogProps) {
             placeholder={'0'}
             type="number"
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e) => setAmount(Number(e.target.value))}
           />
           <TonLabel>TON</TonLabel>
         </PaymentAmountBox>
         <Typography variant="body2" color="#bbb">
           Недостаточно TON для пополнения
         </Typography>
-        <PaymentButton sx={{
+        <PaymentButton onClick={() => tonConnect?.sendTransaction(transaction)} sx={{
           marginTop: '15px',
         }}>Пополнить TON</PaymentButton>
       </PaymentContent>
