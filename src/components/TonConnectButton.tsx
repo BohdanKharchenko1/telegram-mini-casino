@@ -23,8 +23,8 @@ export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) 
         const restored = await tonConnect.connectionRestored;
         console.log('Connection restored:', restored);
 
-        if (restored && userId && tonConnect.account?.address) {
-          await updateWallet(tonConnect.account.address, userId);
+        if (restored && userId && address) {
+          await updateWallet(address, userId);
         }
       } catch (err) {
         console.warn('Failed to restore TonConnect session', err);
