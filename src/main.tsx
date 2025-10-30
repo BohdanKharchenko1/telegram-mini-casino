@@ -13,7 +13,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <TonConnectUIProvider
       manifestUrl="https://telegram-mini-casino.vercel.app/tonconnect-manifest.json"
-      walletsListConfiguration={{
+      /*walletsListConfiguration={{
         includeWallets: [
           {
             appName: 'tonkeeper',
@@ -26,7 +26,7 @@ createRoot(document.getElementById('root')!).render(
             platforms: ['ios', 'android'],
           },
         ],
-      }}
+      }} */
     >
       <ThemeProvider theme={theme}>
         <UserPage/>
