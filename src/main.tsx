@@ -22,7 +22,8 @@ createRoot(document.getElementById('root')!).render(
             aboutUrl: 'https://tonkeeper.com',
             bridgeUrl: 'https://bridge.tonapi.io/bridge',
             universalLink: 'https://app.tonkeeper.com/ton-connect',
-            platforms: ['ios', 'android']
+            deepLink: 'https://app.tonkeeper.com/ton-connect',
+            platforms: ['ios', 'android'],
           },
         ],
       }}
