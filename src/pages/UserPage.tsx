@@ -49,7 +49,7 @@ export default function UserPage() {
       <Paper
         sx={{
           position: 'absolute',
-          top: 200,
+          top: 170,
           left: '50%',
           transform: 'translateX(-50%)',
           width: '85%',
@@ -61,33 +61,34 @@ export default function UserPage() {
           border: '1px solid rgba(255, 255, 255, 0.1)',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'left',
           p: 3,
           gap: 2,
           color: '#fff',
         }}
         elevation={0}
       >
+        <Typography
+          sx={{
+            fontSize: '18px',
+            color: '#d5baff',
+            fontWeight: 500,
+          }}
+        >
+          Баланс
+        </Typography>
+
+        {/* ✅ independent horizontal container */}
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'baseline',
             justifyContent: 'left',
-            gap: 1.5,
+            gap: 1,
             width: '100%',
           }}
         >
-          <Typography
-            sx={{
-              fontSize: '18px',
-              color: '#d5baff',
-              fontWeight: 500,
-            }}
-          >
-            Баланс
-          </Typography>
-
           <Typography
             sx={{
               fontSize: '36px',
@@ -113,7 +114,6 @@ export default function UserPage() {
 
         <TonConnectButton tonConnect={tonConnectUI} userId={`${user?.id}`} />
       </Paper>
-
 
 
 
