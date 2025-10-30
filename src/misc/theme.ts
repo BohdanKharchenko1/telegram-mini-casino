@@ -1,4 +1,14 @@
-import { Button, createTheme, Dialog, DialogContent, DialogTitle, styled, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  createTheme,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  InputBase,
+  styled,
+  Typography,
+} from '@mui/material';
 
 export const theme = createTheme({
   typography: {
@@ -141,3 +151,56 @@ export const PaymentButton = styled(Button)({
   },
 });
 
+export const PaymentAmountBox = styled(Box)({
+  display: 'inline-flex',
+  alignItems: 'baseline',
+  justifyContent: 'center',
+  textAlign: 'center',
+  width: '100%',
+  position: 'relative',
+  gap: '8px',
+});
+
+export const PaymentAmountInput = styled(InputBase)({
+  color: '#fff',
+  fontSize: '44px',
+  fontWeight: 700,
+  background: 'transparent',
+  border: 'none',
+  outline: 'none',
+  width: 'auto',
+  minWidth: '1ch',
+  textAlign: 'right',
+  transition: 'width 0.15s ease',
+  '& input': {
+    textAlign: 'right',
+    background: 'transparent',
+    border: 'none',
+    outline: 'none',
+    color: '#fff',
+    fontSize: '44px',
+    fontWeight: 700,
+    textShadow: '0 0 14px rgba(255,255,255,0.6)',
+    width: 'auto',
+    minWidth: '1ch',
+  },
+  '& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button': {
+    appearance: 'none',
+    margin: 0,
+  },
+  '& input[type=number]': {
+    appearance: 'textfield',
+  },
+  '&:focus-within input': {
+    textShadow: '0 0 16px rgba(255,132,232,0.8)',
+  },
+});
+
+export const TonLabel = styled(Typography)({
+  color: '#fff',
+  fontSize: '44px',
+  fontWeight: 700,
+  textShadow: '0 0 14px rgba(255,255,255,0.7)',
+  whiteSpace: 'nowrap',
+  lineHeight: 1,
+});

@@ -1,8 +1,15 @@
 import {  Slide, Typography } from '@mui/material';
 import type { TonConnectUI } from '@tonconnect/ui-react';
-import { PaymentAmount, PaymentButton, PaymentContent, PaymentDialoge, PaymentTitle } from '../misc/theme.ts';
+import {
+  PaymentAmountBox, PaymentAmountInput,
+  PaymentButton,
+  PaymentContent,
+  PaymentDialoge,
+  PaymentTitle, TonLabel,
+} from '../misc/theme.ts';
 import type { TransitionProps } from '@mui/material/transitions';
 import * as React from 'react';
+import { useState } from 'react';
 
 interface PaymentDialogProps {
   open: boolean;
@@ -19,7 +26,7 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export default function PaymentDialog({ open, onClose }:PaymentDialogProps) {
-
+  const [amount, setAmount] = useState<string>();
   return (
     <PaymentDialoge open={open} onClose={onClose} slots={{
       transition: Transition,
@@ -28,12 +35,20 @@ export default function PaymentDialog({ open, onClose }:PaymentDialogProps) {
     >
       <PaymentTitle>Пополнить баланс Bubble</PaymentTitle>
       <PaymentContent>
-        <PaymentAmount>0 TON</PaymentAmount>
+        <PaymentAmountBox>
+          <PaymentAmountInput
+            placeholder={'0'}
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+          />
+          <TonLabel>TON</TonLabel>
+        </PaymentAmountBox>
         <Typography variant="body2" color="#bbb">
           Недостаточно TON для пополнения
         </Typography>
         <PaymentButton sx={{
-          marginTop: '20px',
+          marginTop: '15px',
         }}>Пополнить TON</PaymentButton>
       </PaymentContent>
     </PaymentDialoge>
