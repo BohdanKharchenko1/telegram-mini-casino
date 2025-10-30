@@ -29,6 +29,8 @@ const Transition = React.forwardRef(function Transition(
 
 export default function PaymentDialog({ open, onClose, tonConnect }:PaymentDialogProps) {
   const [amount, setAmount] = useState<number>(0);
+  console.log('Contract address:', import.meta.env.VITE_CONTRACT_ADDRESS);
+
   const transaction: SendTransactionRequest = {
     validUntil: Math.floor(Date.now() / 1000) + 600,
     messages: [
