@@ -41,7 +41,7 @@ export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) 
     });
 
     return () => unsubscribe();
-  }, [tonConnect, userId]);
+  }, [address, tonConnect, userId]);
 
 
 
