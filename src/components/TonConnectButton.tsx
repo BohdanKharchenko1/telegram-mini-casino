@@ -17,12 +17,32 @@ export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) 
     setOpen((prev) => !prev);
   }
 
-  useEffect(()=>{
-    if(address && userId){
-      updateWallet(address, userId);
-    }
-    }, [address, userId]
-  )
+  useEffect(() => {
+    const restoreConnection = async () => {
+      try {
+        const restored = await tonConnect.connectionRestored;
+        console.log('Connection restored:', restored);
+
+        if (restored && userId && tonConnect.account?.address) {
+          await updateWallet(tonConnect.account.address, userId);
+        }
+      } catch (err) {
+        console.warn('Failed to restore TonConnect session', err);
+      }
+    };
+
+    restoreConnection();
+
+    const unsubscribe = tonConnect.onStatusChange((wallet) => {
+      if (wallet?.account.address && userId) {
+        tonConnect.closeModal(); // ✅ auto-close QR modal
+        updateWallet(wallet.account.address, userId);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [tonConnect, userId]);
+
 
 
 
