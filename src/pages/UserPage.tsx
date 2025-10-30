@@ -75,10 +75,9 @@ export default function UserPage() {
             fontWeight: 500,
           }}
         >
-          Баланс
+          Balance
         </Typography>
 
-        {/* ✅ independent horizontal container */}
         <Box
           sx={{
             display: 'flex',
