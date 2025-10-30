@@ -7,11 +7,16 @@ import { loginWithTelegram } from '../misc/AuthService.ts';
 import useAuth from '../hooks/useAuth.ts';
 import { TonConnectButton } from '../components/TonConnectButton.tsx';
 import { useTonConnectUI } from '@tonconnect/ui-react';
+import useWebSocket from '../hooks/useWebSocket.ts';
 
 export default function UserPage() {
     const {user, setUser} = useAuth();
     const [tonConnectUI] = useTonConnectUI();
-
+    useWebSocket(user?.id, (data) => {
+    if (data.userId === user?.id) {
+      setUser((prev) => ({ ...prev!, balance: data.newBalance }));
+    }
+  });
   useEffect(() => {
     WebApp.expand();
     loginWithTelegram().then((user) => setUser(user));
