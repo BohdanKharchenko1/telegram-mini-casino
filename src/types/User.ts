@@ -1,6 +1,6 @@
 export interface User {
   id: string ;
-  telegramId: number;
+  telegramId: string;
   firstName?: string | null;
   lastName?: string | null;
   username?: string | null;
