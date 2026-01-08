@@ -12,7 +12,7 @@ export default function NavBar() {
         bottom: 30,
         left: '50%',
         transform: 'translateX(-50%)',
-        width: '80%',
+        width: '85%',
         maxWidth: 500,
         height: 90,
         borderRadius: 6,

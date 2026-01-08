@@ -21,7 +21,8 @@ export default function UserPage() {
     WebApp.expand();
     loginWithTelegram().then((user) => setUser(user));
 
-  }, [setUser]);  return (
+  }, [setUser]);
+  return (
     <Box sx={{background: '#2b1436', height: '100vh', width: '100%'}}>
       <Paper
         sx={{
@@ -29,7 +30,7 @@ export default function UserPage() {
           top: 20,
           left: '50%',
           transform: 'translateX(-50%)',
-          width: '80%',
+          width: '85%',
           maxWidth: 500,
           borderRadius: 6,
           background:
@@ -41,13 +42,11 @@ export default function UserPage() {
         }}
         elevation={2}
       >
-        {/* User info row */}
         <Stack direction="row" spacing={2} alignItems="center">
           <Avatar src={user?.photoUrl || undefined} />
           <h2>Hello, {user?.username}</h2>
         </Stack>
 
-        {/* Buttons row */}
       </Paper>
 
 
