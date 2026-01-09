@@ -28,7 +28,7 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export default function PaymentDialog({ open, onClose, tonConnect }:PaymentDialogProps) {
-  const [amount, setAmount] = useState<number | null>();
+  const [amount, setAmount] = useState<string>('');
 
   const transaction: SendTransactionRequest = {
     validUntil: Math.floor(Date.now() / 1000) + 600,
@@ -36,7 +36,7 @@ export default function PaymentDialog({ open, onClose, tonConnect }:PaymentDialo
       {
         address:
           import.meta.env.VITE_CONTRACT_ADDRESS,
-        amount: toNano(amount!).toString(),
+        amount: toNano(amount).toString(),
       },
     ],
   };
@@ -53,7 +53,7 @@ export default function PaymentDialog({ open, onClose, tonConnect }:PaymentDialo
             placeholder={'0'}
             type="number"
             value={amount}
-            onChange={(e) => setAmount(Number(e.target.value))}
+            onChange={(e) => setAmount(e.target.value)}
           />
           <TonLabel>TON</TonLabel>
         </PaymentAmountBox>
