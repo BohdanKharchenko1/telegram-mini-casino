@@ -7,7 +7,7 @@ import { useTonConnectUI } from '@tonconnect/ui-react';
 import { useStore } from '../misc/store.ts';
 
 export default function UserPage() {
-    const {user} = useStore.getState();
+    const user = useStore((state) => state.user);
 
     const [tonConnectUI] = useTonConnectUI();
 

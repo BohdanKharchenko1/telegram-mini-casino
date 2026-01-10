@@ -4,16 +4,19 @@ import { loginWithTelegram } from '../misc/AuthService.ts';
 import { useStore } from '../misc/store.ts';
 
 export default function AuthProvider({ children }: { children: React.ReactNode }) {
+  const user = useStore((state) => state.user);
+  const setUser = useStore((state) => state.setUser);
   const isAttemptedAuth = useRef(false);
   useEffect(() => {
-       const {setUser} = useStore.getState()
-       const login = async () => {
-        if(!isAttemptedAuth.current) {
-            await loginWithTelegram().then((user) => {setUser(user)});
-            isAttemptedAuth.current = true;
+        if(user) return;
+        if(isAttemptedAuth.current) return
+        isAttemptedAuth.current = true;
+
+        const login = async () => {
+            const user = await loginWithTelegram()
+            setUser(user)
         }
-    }
-    login();
-  }, [])
+        login();
+  }, [user, setUser]);
   return <>{children}</>
 }
