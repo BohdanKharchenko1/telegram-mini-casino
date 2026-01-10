@@ -1,27 +1,17 @@
 import Paper from '@mui/material/Paper';
 import { Avatar, Box, Stack, Typography } from '@mui/material';
 import NavBar from '../components/NavBar.tsx';
-import { useEffect } from 'react';
-import WebApp from '@twa-dev/sdk';
-import { loginWithTelegram } from '../misc/AuthService.ts';
-import useAuth from '../hooks/useAuth.ts';
+
 import { TonConnectButton } from '../components/TonConnectButton.tsx';
 import { useTonConnectUI } from '@tonconnect/ui-react';
-import useWebSocket from '../hooks/useWebSocket.ts';
+import { useStore } from '../misc/store.ts';
 
 export default function UserPage() {
-    const {user, setUser} = useAuth();
-    const [tonConnectUI] = useTonConnectUI();
-    useWebSocket(user?.id, (data) => {
-    if (data.userId === user?.id) {
-      setUser((prev) => ({ ...prev!, balance: data.newBalance }));
-    }
-  });
-  useEffect(() => {
-    WebApp.expand();
-    loginWithTelegram().then((user) => setUser(user));
+    const {user} = useStore.getState();
 
-  }, [setUser]);
+    const [tonConnectUI] = useTonConnectUI();
+
+
   return (
     <Box sx={{background: '#2b1436', height: '100vh', width: '100%'}}>
       <Paper

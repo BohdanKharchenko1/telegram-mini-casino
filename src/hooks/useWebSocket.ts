@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { io, Socket } from 'socket.io-client';
 
-// ✅ Define what your backend sends
 interface BalanceUpdate {
   userId: string;
   newBalance: number;
