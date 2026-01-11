@@ -1,6 +1,5 @@
 import Paper from '@mui/material/Paper';
 import { Avatar, Box, Stack, Typography } from '@mui/material';
-import NavBar from '../components/NavBar.tsx';
 
 import { TonConnectButton } from '../components/TonConnectButton.tsx';
 import { useTonConnectUI } from '@tonconnect/ui-react';
@@ -111,7 +110,6 @@ export default function UserPage() {
 
 
 
-      <NavBar />
     </Box>
   )
 }
