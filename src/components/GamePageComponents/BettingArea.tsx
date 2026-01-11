@@ -14,7 +14,7 @@ export default function BettingArea() {
       display: 'flex',
       maxWidth:550,
       flexDirection: 'column',
-      top: 380,
+      top: '43%',
       p:3,
       gap:2
     }}>

@@ -5,7 +5,7 @@ export default function GameArea() {
     <Paper
       sx={{
         position: 'absolute',
-        top: 80,
+        top: '9%',
         left: '50%',
         height: '35vh',
         transform: 'translateX(-50%)',
