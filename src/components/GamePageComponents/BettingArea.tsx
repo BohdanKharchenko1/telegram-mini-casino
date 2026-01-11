@@ -31,7 +31,7 @@ export default function BettingArea() {
           height: 24,
         }}
       />
-        <h2 className='text-white'>{user?.balance?.toFixed(2)}</h2>
+        <h2 className='text-white'>{Number(user?.balance).toFixed(2)}</h2>
       <AddIcon fontSize="medium" color='warning'/>
       </Box>
       <Paper
