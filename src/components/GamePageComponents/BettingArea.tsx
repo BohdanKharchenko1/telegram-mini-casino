@@ -7,18 +7,19 @@ export default function BettingArea() {
   const user = useStore((state) => state.user);
   return (
     <Box sx={{
-      position: 'absolute',
+      position: 'relative',
       left: '50%',
       transform: 'translateX(-50%)',
       width: '90%',
       display: 'flex',
+      maxWidth:550,
       flexDirection: 'column',
       top: 380,
       p:3,
       gap:2
     }}>
       <Box sx={{
-        justifyContent: 'start',
+        pl: 2,
         flexDirection: 'row',
         display: 'flex',
         gap: 1
@@ -30,7 +31,7 @@ export default function BettingArea() {
           height: 24,
         }}
       />
-        <h2 className='text-white'>{user?.balance}</h2>
+        <h2 className='text-white'>{user?.balance?.toFixed(2)}</h2>
       <AddIcon fontSize="medium" color='warning'/>
       </Box>
       <Paper

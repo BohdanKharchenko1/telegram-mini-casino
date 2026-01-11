@@ -6,7 +6,13 @@ import BettingArea from '../components/GamePageComponents/BettingArea.tsx';
 export default function GamePage() {
   const user = useStore((state) =>state.user)
   return (
-    <Box sx={{background: '#2b1436', height: '100vh', width: '100%'}}>
+    <Box sx={{
+      background: '#2b1436',
+      height: '100vh',
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+    }}>
         <Box
           sx={{
             position: 'absolute',
