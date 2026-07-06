@@ -3,7 +3,7 @@ import { Avatar, Box } from '@mui/material';
 import { useStore } from '../../misc/store.ts';
 import AddIcon from '@mui/icons-material/Add';
 export default function BettingArea() {
-  const user = useStore((state) => state.user)
+  const user = useStore((state) => state.user);
 
   return (
     <Box
@@ -17,9 +17,7 @@ export default function BettingArea() {
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         <Avatar src="toncoin-ton-logo.png" sx={{ width: 24, height: 24 }} />
-        <h2 className="text-white">
-          {Number(user?.balance ?? 0).toFixed(2)}
-        </h2>
+        <h2 className="text-white">{Number(user?.balance ?? 0).toFixed(2)}</h2>
         <AddIcon fontSize="medium" color="warning" />
       </Box>
 
@@ -34,5 +32,5 @@ export default function BettingArea() {
         elevation={2}
       />
     </Box>
-  )
+  );
 }

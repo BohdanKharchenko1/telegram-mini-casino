@@ -14,5 +14,5 @@ export default function GameArea() {
       }}
       elevation={2}
     />
-  )
+  );
 }

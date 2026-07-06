@@ -16,7 +16,6 @@ export const theme = createTheme({
   },
   components: {
     MuiBottomNavigationAction: {
-
       styleOverrides: {
         label: {
           fontFamily: 'Comfortaa, sans-serif',
@@ -30,7 +29,6 @@ export const theme = createTheme({
         },
       },
     },
-
   },
 });
 
@@ -41,7 +39,8 @@ export const ConnectButton = styled(Button)({
   padding: '6px 12px',
   border: '1px solid',
   lineHeight: 1.5,
-  backgroundColor: 'linear-gradient(117deg,rgba(255, 79, 160, 1) 0%, rgba(216, 195, 219, 1) 100%)',
+  backgroundColor:
+    'linear-gradient(117deg,rgba(255, 79, 160, 1) 0%, rgba(216, 195, 219, 1) 100%)',
   '&:hover': {
     backgroundColor: '#0069d9',
     borderColor: '#0062cc',
@@ -65,10 +64,12 @@ export const TopUpButton = styled(Button)({
   padding: '10px 0', // 👈 normal vertical padding only
   width: '45%',
   borderRadius: '12px',
-  background: 'linear-gradient(117deg, rgba(255,79,160,1) 0%, rgba(216,195,219,1) 100%)',
+  background:
+    'linear-gradient(117deg, rgba(255,79,160,1) 0%, rgba(216,195,219,1) 100%)',
   boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
   '&:hover': {
-    background: 'linear-gradient(117deg, rgba(255,79,160,0.9) 0%, rgba(216,195,219,0.9) 100%)',
+    background:
+      'linear-gradient(117deg, rgba(255,79,160,0.9) 0%, rgba(216,195,219,0.9) 100%)',
     boxShadow: '0 3px 8px rgba(0,0,0,0.2)',
   },
 });
@@ -106,11 +107,10 @@ export const PaymentDialoge = styled(Dialog)(({ theme }) => ({
     maxWidth: '500px',
     height: '410px',
     boxShadow: '0 0 40px rgba(255, 105, 180, 0.4)',
-    bottom:0,
+    bottom: 0,
     position: 'fixed',
-    margin:0,
+    margin: 0,
   },
-
 }));
 
 export const PaymentTitle = styled(DialogTitle)({

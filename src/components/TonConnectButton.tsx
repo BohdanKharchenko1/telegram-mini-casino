@@ -6,16 +6,19 @@ import { ConnectButton, TopUpButton, WithdrawButton } from '../misc/theme.ts';
 import PaymentDialog from './PaymentDialog.tsx';
 
 interface TonConnectButtonProps {
-  tonConnect: TonConnectUI,
-  userId: string,
+  tonConnect: TonConnectUI;
+  userId: string;
 }
 
-export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) {
+export function TonConnectButton({
+  tonConnect,
+  userId,
+}: TonConnectButtonProps) {
   const address = useTonAddress(false);
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen((prev) => !prev);
-  }
+  };
 
   useEffect(() => {
     const restoreConnection = async () => {
@@ -43,11 +46,7 @@ export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) 
     return () => unsubscribe();
   }, [address, tonConnect, userId]);
 
-
-
-
-
-  return(
+  return (
     /*<div className='flex items-center justify-center min-h-screen'>
       <button className='p-2 bg-blue-400 ' onClick={() => tonConnect.openModal()}>
           Connect Wallet
@@ -79,14 +78,22 @@ export function TonConnectButton({ tonConnect, userId }: TonConnectButtonProps) 
         </ConnectButton>
       ) : (
         <>
-          <TopUpButton onClick={() => handleClick()}  sx={{ flex: '1 1 45%', width: '45%' }}>Top up</TopUpButton>
+          <TopUpButton
+            onClick={() => handleClick()}
+            sx={{ flex: '1 1 45%', width: '45%' }}
+          >
+            Top up
+          </TopUpButton>
           <WithdrawButton sx={{ flex: '1 1 45%', width: '45%' }}>
             Withdraw
           </WithdrawButton>
-          <PaymentDialog tonConnect={tonConnect} open={open} onClose={()=> setOpen(false)}/>
+          <PaymentDialog
+            tonConnect={tonConnect}
+            open={open}
+            onClose={() => setOpen(false)}
+          />
         </>
       )}
     </Stack>
-
   );
 }

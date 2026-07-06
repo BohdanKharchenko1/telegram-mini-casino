@@ -5,23 +5,21 @@ const baseUrl = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   headers: {
     'Content-type': 'application/json',
-    'Accept': 'application/json',
-  }
-
-})
+    Accept: 'application/json',
+  },
+});
 baseUrl.interceptors.request.use(
-  function(config){
-
+  function (config) {
     const jwt = localStorage.getItem('jwt');
-    if(jwt){
+    if (jwt) {
       config.headers['Authorization'] = `Bearer ${jwt}`;
     }
     return config;
   },
-  function(error) {
+  function (error) {
     return Promise.reject(error);
-  }
-)
+  },
+);
 baseUrl.interceptors.response.use(
   (response) => {
     const jwt = response.data?.token;
@@ -32,7 +30,11 @@ baseUrl.interceptors.response.use(
   },
 
   async (error) => {
-    if (error.response && error.response.status === 401 && !error.config._retry) {
+    if (
+      error.response &&
+      error.response.status === 401 &&
+      !error.config._retry
+    ) {
       error.config._retry = true;
 
       try {
