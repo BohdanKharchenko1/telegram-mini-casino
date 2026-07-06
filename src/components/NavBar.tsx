@@ -14,7 +14,7 @@ export default function NavBar({ page, onChange }: NavBarProps) {
         bottom: 30,
         left: '50%',
         transform: 'translateX(-50%)',
-        width: '85%',
+        width: '90%',
         maxWidth: 500,
         height: 90,
         borderRadius: 6,

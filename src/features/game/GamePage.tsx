@@ -22,6 +22,20 @@ export default function GamePage() {
     Boolean(currentUserBet) &&
     !currentUserBet?.cashedOutAt;
 
+  console.log('cashout debug', {
+    status,
+    userId: user?.id,
+    username: user?.username,
+    bets: gameState?.bets.map((bet) => ({
+      betUserId: bet.user.id,
+      username: bet.user.username,
+      betAmount: bet.betAmount,
+      cashedOutAt: bet.cashedOutAt,
+    })),
+    currentUserBet,
+    canCashout,
+  });
+
   const handlePlaceBet = (betAmount: string) => {
     socket.emit('place_bet', { betAmount });
   };
